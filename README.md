@@ -1,4 +1,4 @@
-# UQ_reconstruction_sample
+# UQ reconstruction sample
 
 Minimal PyTorch demo for **uncertainty-aware image reconstruction** under
 noise/compression, with an eye toward scientific imaging.
