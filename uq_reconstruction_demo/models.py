@@ -25,14 +25,19 @@ class ConvAutoencoder(nn.Module):
 
             nn.Conv2d(32, 64, kernel_size=3, stride=2, padding=1),
             nn.ReLU(inplace=True),
+        
         )
 
         self.decoder = nn.Sequential(
             nn.ConvTranspose2d(64, 32, kernel_size=4, stride=2, padding=1),
             nn.ReLU(inplace=True),
-            nn.Dropout2d(p=dropout_p),
+            nn.Conv2d(32, 32, kernel_size=3, padding=1),
+            nn.ReLU(inplace=True),
+            # nn.Dropout2d(p=dropout_p),
 
             nn.ConvTranspose2d(32, 16, kernel_size=4, stride=2, padding=1),
+            nn.ReLU(inplace=True),
+            nn.Conv2d(16, 16, kernel_size=3, padding=1),
             nn.ReLU(inplace=True),
 
             nn.Conv2d(16, 1, kernel_size=3, padding=1),

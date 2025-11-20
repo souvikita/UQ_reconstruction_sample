@@ -1,0 +1,19 @@
+# macOS cruft
+.DS_Store
+
+# Python cache
+__pycache__/
+*.egg-info/
+
+# Model outputs
+checkpoints/
+uq_outputs/
+
+# Local datasets
+sample_png_image/
+uq_grayscale_30/
+
+# Images / local media (optional)
+*.jpg
+*.png
+
