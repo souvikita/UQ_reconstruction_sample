@@ -101,3 +101,5 @@ A compact convolutional autoencoder featuring:
 
 ---
 
+**Thanks to ChatGPT 5.1 for helping to create this nice README.**
+
