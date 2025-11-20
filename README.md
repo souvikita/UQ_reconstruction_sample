@@ -17,6 +17,6 @@ This is intentionally small and self-contained – a sketch of how I think about
 ## Quickstart (skeleton)
 
 ```bash
-git clone https://github.com/<your-user>/uq_reconstruction_demo.git
+git clone https://github.com/<your-user>/UQ_reconstruction_sample.git
 cd uq_reconstruction_sample
 pip install -e .
