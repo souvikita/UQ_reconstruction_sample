@@ -1,4 +1,5 @@
 # uq_reconstruction_demo/datasets.py
+# Good practice for dataset implementation in PyTorch to be separated from training code.
 
 from pathlib import Path
 from typing import Callable, Optional
@@ -21,6 +22,7 @@ class NoisyImageDataset(Dataset):
         data_dir: str,
         transform: Optional[Callable] = None,
         degrade_fn: Optional[Callable] = None,
+        noise_std: float = 0.1,
     ) -> None:
         self.data_dir = Path(data_dir)
         self.paths = sorted(
@@ -28,10 +30,11 @@ class NoisyImageDataset(Dataset):
         )  # adjust to your format
         self.transform = transform
         self.degrade_fn = degrade_fn or self._default_degrade
+        self.noise_std = noise_std
 
     def _default_degrade(self, img: torch.Tensor) -> torch.Tensor:
         # img: Tensor in [0, 1], shape (1, H, W)
-        noise = torch.randn_like(img) * 0.1
+        noise = torch.randn_like(img) * self.noise_std
         degraded = img + noise
         return degraded.clamp(0.0, 1.0)
 
