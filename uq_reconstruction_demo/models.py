@@ -52,3 +52,11 @@ def enable_dropout(model: nn.Module) -> None:
     for m in model.modules():
         if isinstance(m, (nn.Dropout, nn.Dropout2d)):
             m.train()
+
+def disable_dropout(model: nn.Module) -> None:
+    """
+    Disable dropout layers (put them back to eval mode).
+    """
+    for m in model.modules():
+        if isinstance(m, (nn.Dropout, nn.Dropout2d)):
+            m.eval()
